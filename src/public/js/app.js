@@ -3,6 +3,11 @@ const messageList = document.querySelector("ul");
 const nickForm = document.querySelector("#nick");
 const messageForm = document.querySelector("#message");
 
+function makeMessage(type, payload) {
+  const msg = { type, payload };
+  return JSON.stringify(msg);
+}
+
 socket.addEventListener("open", () => {
   console.log("Connected to Server");
 });
