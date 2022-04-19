@@ -24,7 +24,8 @@ wss.on("connection", (socket) => {
     const parsed = JSON.parse(message.toString());
     if (parsed.type === "new_message") {
       sockets.forEach((aSocket) => aSocket.send(parsed.payload));
-    } else {
+    } else if (parsed.type === "nickname") {
+      console.log(parsed.payload);
     }
   });
   socket.send("Hello! I'm WebSocket");
