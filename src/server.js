@@ -18,7 +18,7 @@ wss.on("connection", (socket) => {
   console.log("Connected to Browser");
   socket.on("close", () => console.log("Disconnected from the Browser"));
   socket.on("message", (message) => {
-    socket.send(message);
+    socket.send(message.toString());
   });
   socket.send("Hello! I'm WebSocket");
 });
