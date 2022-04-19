@@ -21,13 +21,13 @@ wss.on("connection", (socket) => {
   sockets.push(socket);
   console.log("Connected to Browser");
   socket.on("close", () => console.log("Disconnected from the Browser"));
-  socket.on("message", (message) => {
-    const parsed = JSON.parse(message.toString());
+  socket.on("message", (msg) => {
+    const message = JSON.parse(msg.toString());
     switch (parse.type) {
       case "new_message":
-        sockets.forEach((aSocket) => aSocket.send(parsed.payload));
+        sockets.forEach((aSocket) => aSocket.send(message.payload));
       case "nickname":
-        console.log(parsed.payload);
+        console.log(message.payload);
     }
   });
   socket.send("Hello! I'm WebSocket");
