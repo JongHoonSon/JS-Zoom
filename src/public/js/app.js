@@ -1,1 +1,1 @@
-const socket = new WebSocket("ws://localhost:3001");
+const socket = new WebSocket(`ws://${window.location.host}`);
