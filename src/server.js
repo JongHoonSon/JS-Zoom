@@ -23,7 +23,7 @@ wss.on("connection", (socket) => {
   socket.on("close", () => console.log("Disconnected from the Browser"));
   socket.on("message", (msg) => {
     const message = JSON.parse(msg.toString());
-    switch (parse.type) {
+    switch (message.type) {
       case "new_message":
         sockets.forEach((aSocket) => aSocket.send(message.payload));
       case "nickname":
