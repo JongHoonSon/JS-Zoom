@@ -1,6 +1,7 @@
 const socket = new WebSocket(`ws://${window.location.host}`);
 const messageList = document.querySelector("ul");
-const messageForm = document.querySelector("form");
+const nickForm = document.querySelector("#nick");
+const messageForm = document.querySelector("#message");
 
 socket.addEventListener("open", () => {
   console.log("Connected to Server");
@@ -21,7 +22,15 @@ function handleSubmit(event) {
   const input = messageForm.querySelector("input");
   socket.send(input.value);
   input.value = "";
-  console.log(input.value);
 }
 
 messageForm.addEventListener("submit", handleSubmit);
+
+function handleNickSubmit(event) {
+  event.preventDefault();
+  const input = nickForm.querySelector("input");
+  socket.send(input.value);
+  input.value = "";
+}
+
+nickForm.addEventListener("submit", handleNickSubmit);
