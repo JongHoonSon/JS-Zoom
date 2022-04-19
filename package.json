@@ -14,7 +14,10 @@
     "url": "https://github.com/JongHoonSon/JS-Zoom/issues"
   },
   "homepage": "https://github.com/JongHoonSon/JS-Zoom#readme",
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.17.3",
+    "pug": "^3.0.2"
+  },
   "devDependencies": {
     "@babel/cli": "^7.17.6",
     "@babel/core": "^7.17.9",
