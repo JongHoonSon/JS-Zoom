@@ -25,7 +25,7 @@ socket.addEventListener("close", () => {
 function handleSubmit(event) {
   event.preventDefault();
   const input = messageForm.querySelector("input");
-  socket.send(input.value);
+  socket.send(makeMessage("new_message", input.value));
   input.value = "";
 }
 
@@ -34,10 +34,7 @@ messageForm.addEventListener("submit", handleSubmit);
 function handleNickSubmit(event) {
   event.preventDefault();
   const input = nickForm.querySelector("input");
-  socket.send({
-    type: "nickname",
-    payload: input.value,
-  });
+  socket.send(makeMessage("nickname", input.value));
   input.value = "";
 }
 
