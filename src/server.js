@@ -27,7 +27,7 @@ wss.on("connection", (socket) => {
       case "new_message":
         sockets.forEach((aSocket) => aSocket.send(message.payload));
       case "nickname":
-        console.log(message.payload);
+        socket["nickname"] = message.payload;
     }
   });
   socket.send("Hello! I'm WebSocket");
