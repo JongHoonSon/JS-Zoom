@@ -2,6 +2,7 @@ import express from "express";
 import http from "http";
 import { parse } from "path";
 import WebSocket from "ws";
+import SocketIO from "socket.io";
 
 const app = express();
 
@@ -13,7 +14,7 @@ app.get("/", (req, res) => res.render("home"));
 const handleListen = () => console.log(`Listening on http://localhost:3001`);
 
 const server = http.createServer(app);
-
+const io = SocketIO(server);
 // const wss = new WebSocket.Server({ server });
 
 // const sockets = [];
