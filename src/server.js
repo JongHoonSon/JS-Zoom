@@ -13,8 +13,8 @@ app.get("/", (req, res) => res.render("home"));
 
 const handleListen = () => console.log(`Listening on http://localhost:3001`);
 
-const server = http.createServer(app);
-const io = SocketIO(server);
+const httpServer = http.createServer(app);
+const wsServer = SocketIO(httpServer);
 // const wss = new WebSocket.Server({ server });
 
 // const sockets = [];
@@ -40,4 +40,4 @@ const io = SocketIO(server);
 //   socket.send("Hello! I'm WebSocket");
 // });
 
-server.listen(3001, handleListen);
+httpServer.listen(3001, handleListen);
