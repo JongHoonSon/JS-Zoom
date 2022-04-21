@@ -59,10 +59,7 @@ socket.on("bye", (user) => addMessage(`${user} left ㅠㅠ`));
 socket.on("new_message", (msg) => addMessage(msg)); // 그냥 addMessage로 써도 됨
 socket.on("room_change", (rooms) => {
   const roomList = welcome.querySelector("ul");
-  if (rooms.length === 0) {
-    roomList.innerHTML = "";
-    return;
-  }
+  roomList.innerHTML = "";
   rooms.forEach((room) => {
     const li = document.createElement("li");
     li.innerText = room;
