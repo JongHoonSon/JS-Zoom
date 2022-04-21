@@ -32,6 +32,7 @@ wsServer.on("connection", (socket) => {
     socket.to(room).emit("new_message", msg);
     done();
   });
+  socket.on("nickname", (nickname) => (socket["nickname"] = nickname));
 });
 
 // const wss = new WebSocket.Server({ server });
