@@ -16,6 +16,21 @@ const handleListen = () => console.log(`Listening on http://localhost:3001`);
 const httpServer = http.createServer(app);
 const wsServer = SocketIO(httpServer);
 
+function publicRooms() {
+  const sids = wsServer.sockets.adapter.sids; // adapter 안에 있는 socket의 id 정보
+  const rooms = wsServer.sockets.adapter.rooms; // adapter 안에 있는 room 정보
+
+  const publicRooms = [];
+  rooms.forEach((value, key) => {
+    // 모든 룸 중에서
+    if (sids.get(key) === undefined) {
+      // 룸의 id가 sids에 있지 않은 것을 (private room 제외)
+      publicRooms.push(key); // public room에 추가
+    }
+  });
+  return publicRooms;
+}
+
 wsServer.on("connection", (socket) => {
   socket["nickname"] = "Anonymous";
   socket.onAny((event) => {
