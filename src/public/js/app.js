@@ -6,14 +6,15 @@ const room = document.getElementById("room");
 
 room.hidden = true;
 
-function backendDone(msg) {
-  console.log(`The backend says: `, msg);
+function showRoom() {
+  welcome.hidden = true;
+  room.hidden = false;
 }
 
 function handleRoomSubmit(event) {
   event.preventDefault();
   const input = form.querySelector("input");
-  socket.emit("enter_room", input.value, backendDone);
+  socket.emit("enter_room", input.value, showRoom);
   input.value = "";
 }
 
