@@ -54,6 +54,6 @@ function handleRoomSubmit(event) {
 
 form.addEventListener("submit", handleRoomSubmit);
 
-socket.on("welcome", () => addMessage("Someone joined!"));
-socket.on("bye", () => addMessage("Someone left ㅠㅠ"));
+socket.on("welcome", (user) => addMessage(`${user} joined!`));
+socket.on("bye", (user) => addMessage(`${user} left ㅠㅠ`));
 socket.on("new_message", (msg) => addMessage(msg)); // 그냥 addMessage로 써도 됨
