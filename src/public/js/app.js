@@ -11,7 +11,7 @@ let roomName;
 function addMessage(message) {
   const ul = room.querySelector("ul");
   const li = document.createElement("li");
-  li.innterText = message;
+  li.innerText = message;
   ul.appendChild(li);
 }
 
