@@ -54,8 +54,16 @@ function handleRoomSubmit(event) {
 
 form.addEventListener("submit", handleRoomSubmit);
 
-socket.on("welcome", (user) => addMessage(`${user} joined!`));
-socket.on("bye", (user) => addMessage(`${user} left ㅠㅠ`));
+socket.on("welcome", (user, userCount) => {
+  const h3 = room.querySelector("h3");
+  h3.innerText = `Room ${roomName} (${userCount})`;
+  addMessage(`${user} joined!`);
+});
+socket.on("bye", (user, userCount) => {
+  const h3 = room.querySelector("h3");
+  h3.innerText = `Room ${roomName} (${userCount})`;
+  addMessage(`${user} left ㅠㅠ`);
+});
 socket.on("new_message", (msg) => addMessage(msg)); // 그냥 addMessage로 써도 됨
 socket.on("room_change", (rooms) => {
   const roomList = welcome.querySelector("ul");
