@@ -48,7 +48,7 @@ wsServer.on("connection", (socket) => {
   });
   socket.on("disconnecting", () => {
     socket.rooms.forEach((room) =>
-      socket.to(room).emit("bye", socket.nickname, countUser(roomName) - 1)
+      socket.to(room).emit("bye", socket.nickname, countUser(room) - 1)
     );
   });
   socket.on("disconnect", () => {
