@@ -18,7 +18,9 @@ const wsServer = SocketIO(httpServer);
 
 wsServer.on("connection", (socket) => {
   socket.on("enter_room", (roomName, done) => {
+    console.log(socket.rooms);
     socket.join(roomName);
+    console.log(socket.rooms);
     setTimeout(() => {
       done("(from server)");
     }, 10000);
