@@ -32,7 +32,7 @@ wsServer.on("connection", (socket) => {
     );
   });
   socket.on("new_message", (msg, room, done) => {
-    socket.to(room).emit("new_message", `${socket.nickname}: msg`);
+    socket.to(room).emit("new_message", `${socket.nickname}: ${msg}`);
     done();
   });
   socket.on("nickname", (nickname) => (socket["nickname"] = nickname));
