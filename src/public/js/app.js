@@ -21,6 +21,7 @@ function handleMessageSubmit(event) {
   socket.emit("new_message", input.value, roomName, () => {
     addMessage(`You: ${input.value}`);
   });
+  input.value = "";
 }
 
 function showRoom() {
@@ -44,3 +45,4 @@ form.addEventListener("submit", handleRoomSubmit);
 
 socket.on("welcome", () => addMessage("Someone joined!"));
 socket.on("bye", () => addMessage("Someone left ㅠㅠ"));
+socket.on("new_message", (msg) => addMessage(msg)); // 그냥 addMessage로 써도 됨
