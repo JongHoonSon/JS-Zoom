@@ -17,6 +17,7 @@ const httpServer = http.createServer(app);
 const wsServer = SocketIO(httpServer);
 
 wsServer.on("connection", (socket) => {
+  socket["nickname"] = "Anonymous";
   socket.onAny((event) => {
     console.log(`Socket Event: ${event}`);
   });
