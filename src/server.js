@@ -2,7 +2,8 @@ import express from "express";
 import http from "http";
 import { parse } from "path";
 import WebSocket from "ws";
-import SocketIO from "socket.io";
+import { Server } from "socket.io";
+import { instrument } from "@socket.io/admin-ui";
 
 const app = express();
 
@@ -14,7 +15,15 @@ app.get("/", (req, res) => res.render("home"));
 const handleListen = () => console.log(`Listening on http://localhost:3001`);
 
 const httpServer = http.createServer(app);
-const wsServer = SocketIO(httpServer);
+const wsServer = new Server(httpServer, {
+  cors: {
+    origin: ["https://admin.socket.io"],
+    credentials: true,
+  },
+});
+instrument(wsServer, {
+  auth: false,
+});
 
 function publicRooms() {
   const sids = wsServer.sockets.adapter.sids; // adapter 안에 있는 socket의 id 정보
