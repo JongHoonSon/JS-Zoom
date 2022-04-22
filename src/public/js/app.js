@@ -88,6 +88,10 @@ async function handleCameraChange() {
   await getMedia(camerasSelect.value);
 }
 
+muteBtn.addEventListener("click", handleMuteClick);
+cameraBtn.addEventListener("click", handleCameraClick);
+camerasSelect.addEventListener("input", handleCameraChange);
+
 // Welcome Form (join a room)
 
 const welcome = document.getElementById("welcome");
@@ -107,7 +111,4 @@ function handleWelcomeSubmit(event) {
   input.value = "";
 }
 
-muteBtn.addEventListener("click", handleMuteClick);
-cameraBtn.addEventListener("click", handleCameraClick);
-camerasSelect.addEventListener("input", handleCameraChange);
 welcomeForm.addEventListener("submit", handleWelcomeSubmit);
