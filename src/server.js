@@ -12,5 +12,11 @@ app.get("/", (req, res) => res.render("home"));
 const httpServer = http.createServer(app);
 const wsServer = SocketIO(httpServer);
 
+wsServer.on("connection", (socket) => {
+  socket.on("join_room", (roomName) => {
+    socket.join(roomName);
+  });
+});
+
 const handleListen = () => console.log(`Listening on http://localhost:3001`);
 httpServer.listen(3001, handleListen);
