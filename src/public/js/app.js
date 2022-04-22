@@ -88,10 +88,16 @@ async function handleCameraChange() {
   await getMedia(camerasSelect.value);
 }
 
+function startMedia() {
+  welcome.hidden = true;
+  call.hidden = false;
+  getMedia();
+}
+
 function handleWelcomeSubmit(event) {
   event.preventDefault();
   const input = welcomeForm.querySelector("input");
-  socket.emit("join_room", input.value);
+  socket.emit("join_room", input.value, startMedia);
   input.value = "";
 }
 
