@@ -12,6 +12,7 @@ call.hidden = true;
 let myStream;
 let muted = false;
 let cameraOff = false;
+let roomName;
 
 async function getCameras() {
   try {
@@ -102,6 +103,7 @@ function handleWelcomeSubmit(event) {
   event.preventDefault();
   const input = welcomeForm.querySelector("input");
   socket.emit("join_room", input.value, startMedia);
+  roomName = input.value;
   input.value = "";
 }
 
