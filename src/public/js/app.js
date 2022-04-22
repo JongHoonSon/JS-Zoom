@@ -4,9 +4,8 @@ const myFace = document.getElementById("myFace");
 const muteBtn = document.getElementById("mute");
 const cameraBtn = document.getElementById("camera");
 const camerasSelect = document.getElementById("cameras");
-const welcome = document.getElementById("welcome");
+
 const call = document.getElementById("call");
-const welcomeForm = welcome.querySelector("form");
 
 call.hidden = true;
 
@@ -87,6 +86,11 @@ function handleCameraClick() {
 async function handleCameraChange() {
   await getMedia(camerasSelect.value);
 }
+
+// Welcome Form (join a room)
+
+const welcome = document.getElementById("welcome");
+const welcomeForm = welcome.querySelector("form");
 
 function startMedia() {
   welcome.hidden = true;
