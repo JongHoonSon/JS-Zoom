@@ -103,7 +103,7 @@ async function initCall() {
   makeConnection();
 }
 
-function handleWelcomeSubmit(event) {
+async function handleWelcomeSubmit(event) {
   event.preventDefault();
   const input = welcomeForm.querySelector("input");
   await initCall();
