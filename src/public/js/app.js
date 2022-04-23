@@ -7,7 +7,7 @@ const camerasSelect = document.getElementById("cameras");
 
 const streamSection = document.getElementById("stream_section");
 
-streamSection.hidden = true;
+streamSection.classList.add("hidden");
 
 let myStream;
 let muted = false;
@@ -107,7 +107,7 @@ const chatSection = document.getElementById("chat_section");
 const chatForm = document.getElementById("chat_form");
 const chatList = document.getElementById("chat_list");
 
-chatSection.hidden = true;
+chatSection.classList.add("hidden");
 
 function handleChatSubmit(event) {
   event.preventDefault();
@@ -132,8 +132,8 @@ const welcome = document.getElementById("welcome");
 const welcomeForm = welcome.querySelector("form");
 
 async function initCall() {
-  welcome.hidden = true;
-  streamSection.hidden = false;
+  welcome.classList.add("hidden");
+  streamSection.classList.remove("hidden");
   await getMedia();
   makeConnection();
 }
@@ -157,7 +157,7 @@ socket.on("welcome", async () => {
     addChat(event.data, "Friend");
   });
   console.log("data channel created");
-  chatSection.hidden = false;
+  chatSection.classList.remove("hidden");
   const offer = await myPeerConnection.createOffer();
   myPeerConnection.setLocalDescription(offer);
   console.log("sent the offer");
@@ -172,7 +172,7 @@ socket.on("offer", async (offer) => {
     });
   });
   console.log("received the offer");
-  chatSection.hidden = false;
+  chatSection.classList.remove("hidden");
   myPeerConnection.setRemoteDescription(offer);
   const answer = await myPeerConnection.createAnswer();
   console.log(answer);
