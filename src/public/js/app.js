@@ -122,7 +122,7 @@ socket.on("welcome", async () => {
 });
 
 socket.on("offer", (offer) => {
-  console.log("offer", offer);
+  myPeerConnection.setRemoteDescription(offer);
 });
 
 // WebRTC Code
