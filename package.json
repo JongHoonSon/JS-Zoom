@@ -13,7 +13,7 @@
   "bugs": {
     "url": "https://github.com/JongHoonSon/JS-Zoom/issues"
   },
-  "homepage": "https://github.com/JongHoonSon/JS-Zoom#readme",
+  "homepage": "https://github.com/JongHoonSon/JS-Zoom",
   "dependencies": {
     "@socket.io/admin-ui": "^0.2.0",
     "express": "^4.17.3",
