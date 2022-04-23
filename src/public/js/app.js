@@ -138,6 +138,11 @@ socket.on("answer", (answer) => {
   myPeerConnection.setRemoteDescription(answer);
 });
 
+socket.on("ice", (ice) => {
+  console.log("received candidate");
+  myPeerConnection.addIceCandidate(ice);
+});
+
 // WebRTC Code
 
 function makeConnection() {
@@ -149,6 +154,7 @@ function makeConnection() {
 }
 
 function handleIce(data) {
-  console.log("got ice candidate");
+  console.log("sent candidate");
   console.log(data);
+  socket.emit("ice", data.canditate, roomName);
 }
