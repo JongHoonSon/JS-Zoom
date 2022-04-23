@@ -1,0 +1,166 @@
+@import "reset.css";
+@import "variable.css";
+
+body {
+  background-color: var(--skyblue);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  color: white;
+  width: 100vw;
+  height: 100vh;
+}
+
+body,
+input,
+input::placeholder,
+button,
+select,
+option,
+header h1 {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 800;
+}
+
+header h1 {
+  font-size: 80px;
+  margin: 50px;
+}
+
+button {
+  width: 120px;
+  height: 50px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  background-color: var(--deepblue);
+  border-radius: 10px;
+  border: 3px solid white;
+  color: white;
+}
+
+select {
+  width: 200px;
+  height: 30px;
+  background-color: var(--deepblue);
+  border-radius: 10px;
+  border: 3px solid white;
+  color: white;
+}
+
+select:focus {
+  outline: none;
+}
+
+input {
+  border: 5px solid var(--deepblue);
+  border-radius: 20px;
+  text-align: center;
+}
+
+input::placeholder {
+  color: var(--deepblue);
+  opacity: 0.5;
+}
+
+input:focus {
+  outline: none;
+}
+
+video {
+  margin: 10px;
+  background-color: black;
+  border: 5px solid var(--deepblue);
+  border-radius: 15px;
+}
+
+#welcome {
+  width: 30vw;
+  height: 30vh;
+  margin: 50px;
+  background-color: var(--blue);
+  border-radius: 30px;
+  border: 5px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#room_form {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 50px;
+}
+
+#room_form input {
+  width: 80%;
+  height: 20%;
+  font-size: 32px;
+}
+
+#call {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0px 0px 50px 0px;
+}
+
+#buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#buttons button,
+#buttons select {
+  margin: 10px;
+}
+
+#chat_section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#chat_form {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10px 50px;
+}
+
+#chat_list {
+  width: 400px;
+  height: 600px;
+  border-radius: 15px;
+  border: 5px solid var(--deepblue);
+  background-color: white;
+  color: var(--deepblue);
+  padding: 20px;
+}
+
+#chat_list li {
+  margin-bottom: 10px;
+}
+
+#chat_form input {
+  width: 250px;
+  height: 50px;
+  border-radius: 5px;
+  font-size: 16px;
+  margin: 10px;
+  font-weight: 600;
+}
+
+.hidden {
+  display: none !important;
+}
