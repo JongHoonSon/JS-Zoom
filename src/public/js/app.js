@@ -117,8 +117,9 @@ welcomeForm.addEventListener("submit", handleWelcomeSubmit);
 
 // Socket Code
 
-socket.on("welcome", () => {
-  console.log("someone joined");
+socket.on("welcome", async () => {
+  const offer = await myPeerConnection.createOffer();
+  console.log(offer);
 });
 
 // WebRTC Code
