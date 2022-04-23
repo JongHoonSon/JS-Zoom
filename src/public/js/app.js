@@ -88,7 +88,7 @@ async function handleCameraChange() {
   if (myPeerConnection) {
     const videoTrack = myStream.getVideoTracks()[0]; // 변경된 카메라로 stream 중인 비디오를 저장
     const videoSender = myPeerConnection
-      .getSender()
+      .getSenders()
       .find((sender) => sender.track.kind === "video");
     videoSender.replaceTrack(videoTrack); // videoTrack을 Sender myPeerConnection의 videoSender에 등록
   }
