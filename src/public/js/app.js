@@ -176,7 +176,7 @@ function makeConnection() {
 function handleIce(data) {
   console.log("sent candidate");
   console.log(data.candidate);
-  socket.emit("ice", data.canditate, roomName);
+  socket.emit("ice", data.candidate, roomName);
 }
 
 function handleAddStream(data) {
