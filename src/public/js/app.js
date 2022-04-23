@@ -1,5 +1,6 @@
 const socket = io();
 
+const title = document.getElementById("title");
 const myFace = document.getElementById("myFace");
 const muteBtn = document.getElementById("mute");
 const cameraBtn = document.getElementById("camera");
@@ -144,6 +145,7 @@ async function handleWelcomeSubmit(event) {
   await initCall();
   socket.emit("join_room", input.value);
   roomName = input.value;
+  title.innerText = roomName;
   input.value = "";
 }
 
