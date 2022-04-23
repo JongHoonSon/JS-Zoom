@@ -130,6 +130,10 @@ socket.on("offer", async (offer) => {
   socket.emit("answer", answer, roomName);
 });
 
+socket.on("answer", (answer) => {
+  myPeerConnection.setRemoteDescription(answer);
+});
+
 // WebRTC Code
 
 function makeConnection() {
