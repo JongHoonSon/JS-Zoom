@@ -164,4 +164,7 @@ function handleAddStream(data) {
   console.log("got an stream from my peer");
   console.log("Peer's Stream: ", data.stream);
   console.log("My Stream: ", myStream);
+
+  const peerFace = document.getElementById("peerFace");
+  peerFace.srcObject = data.stream;
 }
