@@ -121,6 +121,10 @@ socket.on("welcome", async () => {
   socket.emit("offer", offer, roomName);
 });
 
+socket.on("offer", (offer) => {
+  console.log("offer", offer);
+});
+
 // WebRTC Code
 
 function makeConnection() {
