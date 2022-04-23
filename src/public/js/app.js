@@ -126,6 +126,7 @@ socket.on("offer", async (offer) => {
   myPeerConnection.setRemoteDescription(offer);
   const answer = await myPeerConnection.createAnswer();
   console.log(answer);
+  myPeerConnection.setLocalDescription(answer);
 });
 
 // WebRTC Code
