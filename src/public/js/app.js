@@ -114,6 +114,7 @@ function handleChatSubmit(event) {
   const input = chatForm.querySelector("input");
   const message = input.value;
   addChat(message, "You");
+  myDataChannel.send(message);
   input.value = "";
 }
 
@@ -152,7 +153,9 @@ welcomeForm.addEventListener("submit", handleWelcomeSubmit);
 
 socket.on("welcome", async () => {
   myDataChannel = myPeerConnection.createDataChannel("chat");
-  myDataChannel.addEventListener("message", console.log);
+  myDataChannel.addEventListener("message", (event) => {
+    addChat(event.data, "Friend");
+  });
   console.log("data channel created");
   chatSection.hidden = false;
   const offer = await myPeerConnection.createOffer();
@@ -165,7 +168,7 @@ socket.on("offer", async (offer) => {
   myPeerConnection.addEventListener("datachannel", (event) => {
     myDataChannel = event.channel;
     myDataChannel.addEventListener("message", (event) => {
-      console.log(event.data);
+      addChat(event.data, "Friend");
     });
   });
   console.log("received the offer");
