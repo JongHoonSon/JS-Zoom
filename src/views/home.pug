@@ -25,6 +25,9 @@ html(lang="en")
                     div#peerStream
                         video#peerFace(autoplay, playsinline, width="1080", height="720")
                 div#chat_section
+                    form#chat_form
+                        input(placeholder="Write your message", required, text="text")
+                        button Send Message
                     ul#chat_list
                 
         script(src="/socket.io/socket.io.js")
