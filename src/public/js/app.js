@@ -119,18 +119,22 @@ welcomeForm.addEventListener("submit", handleWelcomeSubmit);
 socket.on("welcome", async () => {
   const offer = await myPeerConnection.createOffer();
   myPeerConnection.setLocalDescription(offer);
+  console.log("sent the offer");
   socket.emit("offer", offer, roomName);
 });
 
 socket.on("offer", async (offer) => {
+  console.log("received the offer");
   myPeerConnection.setRemoteDescription(offer);
   const answer = await myPeerConnection.createAnswer();
   console.log(answer);
   myPeerConnection.setLocalDescription(answer);
+  console.log("sent the answer");
   socket.emit("answer", answer, roomName);
 });
 
 socket.on("answer", (answer) => {
+  console.log("received the answer");
   myPeerConnection.setRemoteDescription(answer);
 });
 
@@ -145,5 +149,6 @@ function makeConnection() {
 }
 
 function handleIce(data) {
+  console.log("got ice candidate");
   console.log(data);
 }
